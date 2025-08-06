@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GreyZeng - 个人主页</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.5;
+            color: #333;
+            background-color: #f5f5f5;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+        }
+
+        .container {
+            max-width: 1000px;
+            width: 100%;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 25px;
+            padding: 25px 0;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .header h1 {
+            font-size: 2.2rem;
+            margin-bottom: 8px;
+            color: #2c3e50;
+            font-weight: 300;
+        }
+
+        .header p {
+            font-size: 1rem;
+            color: #7f8c8d;
+        }
+
+        .contact-section {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .contact-section h2 {
+            font-size: 1.3rem;
+            margin-bottom: 10px;
+            color: #2c3e50;
+        }
+
+        .email {
+            font-size: 1rem;
+            color: #3498db;
+            text-decoration: none;
+            padding: 8px 16px;
+            border: 2px solid #3498db;
+            border-radius: 5px;
+            display: inline-block;
+            transition: all 0.2s ease;
+        }
+
+        .email:hover {
+            background: #3498db;
+            color: white;
+        }
+
+        .sections {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+        }
+
+        .section {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .section h3 {
+            color: #2c3e50;
+            font-size: 1.2rem;
+            margin-bottom: 15px;
+            padding-bottom: 8px;
+            border-bottom: 2px solid #ecf0f1;
+        }
+
+        .link-list {
+            display: grid;
+            gap: 12px;
+        }
+
+        .link-item {
+            background: #f8f9fa;
+            padding: 15px;
+            border-radius: 5px;
+            text-decoration: none;
+            color: #333;
+            border-left: 4px solid #3498db;
+            transition: all 0.2s ease;
+        }
+
+        .link-item:hover {
+            background: #e9ecef;
+            transform: translateX(3px);
+        }
+
+        .link-item h4 {
+            color: #2c3e50;
+            margin-bottom: 5px;
+            font-size: 1rem;
+        }
+
+        .link-item p {
+            color: #7f8c8d;
+            font-size: 0.85rem;
+            line-height: 1.4;
+        }
+
+        .community-section .link-item {
+            border-left-color: #e74c3c;
+        }
+
+        .footer {
+            text-align: center;
+            margin-top: 25px;
+            padding: 20px;
+            color: #7f8c8d;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .footer p {
+            font-size: 0.9rem;
+            margin-bottom: 15px;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .social-link {
+            padding: 8px 12px;
+            background: #f8f9fa;
+            color: #7f8c8d;
+            text-decoration: none;
+            border-radius: 5px;
+            border: 1px solid #dee2e6;
+            transition: all 0.2s ease;
+            font-size: 0.9rem;
+        }
+
+        .social-link:hover {
+            background: #e9ecef;
+            color: #2c3e50;
+        }
+
+        /* 平板端优化 */
+        @media (max-width: 1024px) {
+            .container {
+                padding: 15px;
+            }
+            
+            .sections {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 15px;
+            }
+            
+            .header h1 {
+                font-size: 2rem;
+            }
+            
+            .section {
+                padding: 18px;
+            }
+        }
+
+        /* 移动端优化 */
+        @media (max-width: 768px) {
+            body {
+                align-items: flex-start;
+                padding: 10px 0;
+            }
+            
+            .container {
+                padding: 10px;
+            }
+            
+            .header {
+                padding: 20px 0;
+                margin-bottom: 20px;
+            }
+            
+            .header h1 {
+                font-size: 1.8rem;
+            }
+            
+            .header p {
+                font-size: 0.9rem;
+            }
+            
+            .sections {
+                grid-template-columns: 1fr;
+                gap: 15px;
+            }
+            
+            .section {
+                padding: 15px;
+            }
+            
+            .section h3 {
+                font-size: 1.1rem;
+                margin-bottom: 12px;
+            }
+            
+            .link-item {
+                padding: 12px;
+            }
+            
+            .link-item h4 {
+                font-size: 0.95rem;
+            }
+            
+            .link-item p {
+                font-size: 0.8rem;
+            }
+            
+            .contact-section {
+                padding: 15px;
+                margin-bottom: 15px;
+            }
+            
+            .contact-section h2 {
+                font-size: 1.2rem;
+            }
+            
+            .footer {
+                padding: 15px;
+                margin-top: 20px;
+            }
+            
+            .social-links {
+                gap: 10px;
+            }
+            
+            .social-link {
+                padding: 6px 10px;
+                font-size: 0.85rem;
+            }
+        }
+
+        /* 小屏幕手机优化 */
+        @media (max-width: 480px) {
+            .container {
+                padding: 8px;
+            }
+            
+            .header h1 {
+                font-size: 1.6rem;
+            }
+            
+            .header p {
+                font-size: 0.85rem;
+            }
+            
+            .section {
+                padding: 12px;
+            }
+            
+            .link-item {
+                padding: 10px;
+            }
+            
+            .link-item h4 {
+                font-size: 0.9rem;
+            }
+            
+            .link-item p {
+                font-size: 0.75rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <h1>GreyZeng</h1>
+            <p>技术博主 · 编程爱好者</p>
+        </header>
+
+        <section class="contact-section">
+            <h2>联系方式</h2>
+            <a href="mailto:greyzeng@foxmail.com" class="email">greyzeng@foxmail.com</a>
+        </section>
+
+        <div class="sections">
+            <section class="section">
+                <h3>我的博客</h3>
+                <div class="link-list">
+                    <a href="https://www.cnblogs.com/greyzeng/categories" class="link-item" target="_blank">
+                        <h4>博客园</h4>
+                        <p>我的主要技术博客，分享编程心得和技术文章</p>
+                    </a>
+                    <a href="https://blog.csdn.net/hotonyhui" class="link-item" target="_blank">
+                        <h4>CSDN</h4>
+                        <p>CSDN平台上的技术博客，专注于软件开发相关内容</p>
+                    </a>
+                    <a href="https://www.cnblogs.com/greyzeng/p/5081832.html" class="link-item" target="_blank">
+                        <h4>助教期间博客</h4>
+                        <p>担任助教期间的教学心得和经验分享</p>
+                    </a>
+                </div>
+            </section>
+
+            <section class="section community-section">
+                <h3>我管理的社区</h3>
+                <div class="link-list">
+                    <a href="https://bbs.csdn.net/forums/ThinkingInCode" class="link-item" target="_blank">
+                        <h4>Thinking In Code</h4>
+                        <p>CSDN社区，专注于编程思维和代码设计讨论</p>
+                    </a>
+                    <a href="https://bbs.csdn.net/forums/SoftwareEngineering" class="link-item" target="_blank">
+                        <h4>构建之法</h4>
+                        <p>软件工程社区，分享软件开发和项目管理经验</p>
+                    </a>
+                </div>
+            </section>
+
+            <section class="section">
+                <h3>社交媒体</h3>
+                <div class="link-list">
+                    <a href="https://github.com/GreyZeng" class="link-item" target="_blank">
+                        <h4>GitHub</h4>
+                        <p>我的开源项目和技术代码仓库</p>
+                    </a>
+                    <a href="https://www.douban.com/people/greyzeng" class="link-item" target="_blank">
+                        <h4>豆瓣</h4>
+                        <p>个人主页，分享阅读和观影心得</p>
+                    </a>
+                </div>
+            </section>
+        </div>
+
+        <footer class="footer">
+            <p>感谢您的访问！让我们一起在技术的道路上不断前行</p>
+            <div class="social-links">
+                <a href="https://github.com/GreyZeng" class="social-link" target="_blank">GitHub</a>
+                <a href="mailto:greyzeng@foxmail.com" class="social-link">Email</a>
+                <a href="https://www.cnblogs.com/greyzeng/categories" class="social-link" target="_blank">博客园</a>
+            </div>
+        </footer>
+    </div>
+</body>
+</html> 
